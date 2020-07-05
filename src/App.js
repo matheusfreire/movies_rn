@@ -4,10 +4,13 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import { View, Text, Button } from 'react-native';
-import Section from './components/Section';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import reducer from './reducers'
+import Movies from './components/Movies';
 
 function HomeScreen() {
-  return (<Section />);
+  return (<Movies />);
 }
 
 function SettingsScreen() {
@@ -22,7 +25,7 @@ const Tab = createBottomTabNavigator();
 
 const Tabs = () => {
   return (
-    <Tab.Navigator initialRouteName="Filmes" 
+    <Tab.Navigator initialRouteName="Filmes"
       tabBarOptions={{
         activeTintColor: '#FFFFFF',
         labelStyle: {
@@ -41,29 +44,32 @@ const Tabs = () => {
 
 export default function App() {
   return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName="Screens" >
-        <Stack.Screen name="Screens" component={Tabs}
-          options={({ route }) => ({
-            headerTintColor: 'white',
-            headerStyle: {
-              backgroundColor: '#2F95D6',
-            },
-            headerTitleStyle: {
-              fontSize: 18,
-            },
-            headerRight: () => (
-              <Button
-                onPress={() => alert('This is a button!')}
-                title="Info"
-                color="#fff"
-              />
-            ),
-            // headerTitle: getHeaderTitle(route)
-          })}
-        />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <Provider store={createStore(reducer)}>
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName="Screens" >
+          <Stack.Screen name="Screens" component={Tabs}
+            options={({ route }) => ({
+              headerTintColor: 'white',
+              headerStyle: {
+                backgroundColor: '#2F95D6',
+              },
+              headerTitleStyle: {
+                fontSize: 18,
+              },
+              headerRight: () => (
+                <Button
+                  onPress={() => alert('This is a button!')}
+                  title="Info"
+                  color="#fff"
+                />
+              ),
+              // headerTitle: getHeaderTitle(route)
+            })}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </Provider>
+
   );
 }
 

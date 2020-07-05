@@ -17,7 +17,7 @@ class MovieCard extends Component {
                     containerStyle={styles.card}
                     dividerStyle={styles.divider}
                     imageStyle={styles.cardImage}>
-                    <Text style={styles.cardTitle}>
+                    <Text ellipsizeMode='tail' numberOfLines={1}  style={styles.cardTitle}>
                         {this.getTitle(item)}
                     </Text>
                 </Card>
@@ -53,6 +53,7 @@ const styles = StyleSheet.create({
 		borderBottomLeftRadius: 1
 	},
 	cardTitle: {
+        maxWidth: 140,
 		color: 'white',
 		fontSize: 16,
         fontWeight: 'bold',
