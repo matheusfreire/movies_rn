@@ -37,7 +37,6 @@ const Tabs = () => {
       }}
     >
       <Tab.Screen name="Filmes" component={HomeScreen} />
-      <Tab.Screen name="Series" component={SettingsScreen} />
     </Tab.Navigator>
   );
 }
@@ -66,6 +65,7 @@ export default function App() {
               // headerTitle: getHeaderTitle(route)
             })}
           />
+          <Stack.Screen name="MovieDetail" component={<MovieDetails />}/>
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>

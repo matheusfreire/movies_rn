@@ -13,6 +13,9 @@ class HeaderSection extends Component {
 const styles = StyleSheet.create({
     header: {
       fontSize: 32,
+      paddingTop:20 ,
+      paddingLeft: 20,
+      marginVertical: 8,
       color: "white"
     },
   });
