@@ -67,6 +67,7 @@ class ListDiscovered extends Component {
                                     data={item.data}
                                     renderItem={({ item }) => <MovieCard item={item} />}
                                     keyExtractor={item => item.id}
+                                    
                                     horizontal={true}
                                     />
                             </TouchableOpacity>
