@@ -61,7 +61,7 @@ class ListDiscovered extends Component {
                     <FlatList
                         data={data}
                         renderItem={({ item }) =>
-                            <TouchableOpacity key={item} onPress={() => this.props.navigation.navigate('DeckDetail', { deck: item })}>
+                            <TouchableOpacity key={item} onPress={() => this.props.navigation.navigate('MovieDetail', { movie: item })}>
                                 <HeaderSection title={item.title} />
                                 <FlatList
                                     data={item.data}

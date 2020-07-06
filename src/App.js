@@ -8,6 +8,7 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import reducer from './reducers'
 import Movies from './components/Movies';
+import MovieDetail from './components/MovieDetail';
 
 function HomeScreen() {
   return (<Movies />);
